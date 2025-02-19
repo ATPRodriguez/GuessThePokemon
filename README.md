@@ -202,5 +202,24 @@ ___
 
   <img src="./img/reto4-2.png" alt="reto 4-2.png"/>
 
+## **Reto 5** <a name="reto5"></a>
+- ### **Paso 1: Creando nuestro propio tipo**<a name="5.1"></a>
+    - Vamos a modificar el método getPokemons que hemos creado en el archivo usePokemonGame.ts para quedarnos solo con el nombre y el id de la respuesta
+    - Exportálo de la misma forma que hemos hecho con los archivos hasta ahora. Volvamos a usePokemonGame.ts. Importamos la interfaz que acabamos de crear
 
+    ```ts
+    const pokemonsArray = response.data.results.map( pokemon => {
+        const urlParts = pokemon.url.split("/");
+        const id = urlParts[urlParts.length - 2] ?? 0;
+        return {
+            name : pokemon.name,
+            id: +id
+        }
+      })
+
+      return pokemonsArray;
+    ```
+    - ¿Qué es lo que estamos haciendo? ¿Para qué sirve la línea de código: const id = urlParts[urlParts.length - 2] ?? 0;?   
+
+      Esta linea nos permite tomar la id desde la url del pokemon siendo que separamos el texto entre los `/` de la url y tomamos la posicion en la que esta su id, en caso de que esto falle decimos que tiene la id 0.
 </div>
