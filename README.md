@@ -26,6 +26,13 @@
   - [Paso 2](#3.2)
 - [Reto 4](#reto4)
   - [Paso 1](4.1)
+- [Reto 5](#reto5)
+  - [Paso 1](5.1)
+  - [Paso 2](5.2)
+- [Reto 6](#reto6)
+  - [Paso 1](6.1)
+  - [Paso 2](6.2)
+  - [Paso 3](6.3)
 
 <div align="center">
 <img src="./img/Shinx_sprite.gif" width="100" height="100" />   
@@ -238,6 +245,7 @@ ___
   <img src="./img/reto5-2.png" alt="reto5-2.png"/>
 
   ## **Reto 6**<a name="reto6"></a>
+  - ### **Paso 1: Alternar secciones** <a name="6.1"></a>
   - Para continuar, lo que debemos hacer es poder determinar varias propiedades computadas que vamos a necesitas, por ejemplo: cuando nuestra página está cargando. Hay un momento en la petición HTTP está trayendo la información, por tanto, podemos crear una propiedad computada para que se cambie automáticamente. 
   - En usePokemonGame.ts crea una nueva propiedad computada llamada isLoading.
   - Mostrar en PokemonGame.vue el mensaje de "Espere por favor" y "Cargando Pokemons":
@@ -250,6 +258,7 @@ ___
   const pokemonOptions = ref<Pokemon[]>([]);
   ```
 
+  - ### **Paso 2: Elegir Pokemon** <a name="6.2"></a> 
   - ¿Cómo determinamos cuál es el Pokemon correcto?    
     Tenemos que ser capaces de determinar cual es el Pokemon correcto. Vamos a hacerlo mediante una propiedad computada. Para ello vamos a crear:
 
@@ -279,6 +288,7 @@ ___
     
     <img src="./img/reto6-4.png" alt="reto6-4"/>
 
+  - ### **Paso 3: Ganar el juego** <a name="6.3"></a>
     - Ahora vamos a centrarnos en saber cuando el jugador gana
     ```ts
     const checkAnswer = (id:number) => {
