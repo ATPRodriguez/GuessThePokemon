@@ -53,6 +53,8 @@ ___
 
 - ### *¿Para qué crees que sirven? ¿Te aventuras a intentar averiguar cual será la lógica que implementemos en ellos?* <a name="p8"></a>
 
+- ### *¿Qué es una propiedad computada?* <a name="p9"></a>
+
 ## **Reto 1** <a name="reto1"></a>
   - ### *Paso 1: Crear el proyecto Vue* <a name="1"></a>
     Siguiendo el siguiente comando creamos el proyecto Vue:
@@ -234,4 +236,70 @@ ___
   ```
 
   <img src="./img/reto5-2.png" alt="reto5-2.png"/>
+
+  ## **Reto 6**<a name="reto6"></a>
+  - Para continuar, lo que debemos hacer es poder determinar varias propiedades computadas que vamos a necesitas, por ejemplo: cuando nuestra página está cargando. Hay un momento en la petición HTTP está trayendo la información, por tanto, podemos crear una propiedad computada para que se cambie automáticamente. 
+  - En usePokemonGame.ts crea una nueva propiedad computada llamada isLoading.
+  - Mostrar en PokemonGame.vue el mensaje de "Espere por favor" y "Cargando Pokemons":
+  
+    <img src="./img/reto6-1.png" alt="reto6-1"/>
+  
+  - Ahora vamos a crear otra propiedad reactiva a la que vamos a llamar pokemonOptions:
+
+  ```ts
+  const pokemonOptions = ref<Pokemon[]>([]);
+  ```
+
+  - ¿Cómo determinamos cuál es el Pokemon correcto?    
+    Tenemos que ser capaces de determinar cual es el Pokemon correcto. Vamos a hacerlo mediante una propiedad computada. Para ello vamos a crear:
+
+    ```ts
+    const randomPokemon = computed(() => {
+        const randomIndex = Math.floor(Math.random() * pokemonOptions.value.length);
+        return pokemonOptions.value[randomIndex];
+    })
+    ```
+
+    <img src="./img/reto6-2.png" alt="reto6-2.png"/>
+
+   - Ahora lo que debemos hacer es saber cual es la imagen correspondiente con ese Pokémon, pasamos por props el id del pokemon a PokemonPicture y dentro creamos una variable computada.
+
+    ```ts
+    const pokemonImage = computed (() => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.pokemonId}.png`)
+    ```
+
+   <img src="./img/reto6-3.png" alt="reto6-3"/>
+
+   - Ahora tenemos que saber, cuando el usuario haga click sobre un botón, emitir cual es esa opción, para ello creamos defineEmits: 
+    ```ts
+    defineEmits<{
+        selectedOption : [id:number]
+    }>();
+    ```
+    
+    <img src="./img/reto6-4.png" alt="reto6-4"/>
+
+    - Ahora vamos a centrarnos en saber cuando el jugador gana
+    ```ts
+    const checkAnswer = (id:number) => {
+        const hasWon = randomPokemon.value.id === id;
+
+        if (hasWon) {
+            gameStatus.value = GameStatus.Won;
+            confetti({
+                particleCount: 300,
+                spread: 150,
+                origin: { y: 0.6 },
+            });
+            return;
+        }
+
+        gameStatus.value = GameStatus.Lost;
+    }
+    ```
+
+## Resultado final
+
+<img src="./img/reto6-5.png" alt="reto6-5"/>
+
 </div>
