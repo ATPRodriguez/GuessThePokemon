@@ -14,6 +14,11 @@
   - [Pregunta 2](#p2)
   - [Pregunta 3](#p3)
   - [Pregunta 4](#p4)
+  - [Pregunta 5](#p5)
+  - [Pregunta 6](#p6)
+  - [Pregunta 7](#p7)
+  - [Pregunta 8](#p8)
+  - [Pregunta 9](#p9)
 - [Reto 1](#reto1)
   - [Paso 1](#1)
   - [Paso 2](#2)
@@ -45,10 +50,12 @@ ___
 ## **Preguntas** <a name="preguntas"></a>
 ## **Reto 1**
 - ### *¿Para qué sirve Vue Router, Pinia, Vitest, ESLint y Prettier?* <a name="p1"></a>
-- ### *¿Qué es Composition API y en qué se diferencia de Option API en VueJS?* <a name="p2"></a>
-- ### *¿Qué es screaming architecture y qué ventajas tiene?* <a name="p3"></a>
+  Vue router nos permite navegar entre distintos componentes de Vue, Pinia es una herramiento para manejar la gestion, Vitest es para hacer tests, ESLint por su parte es para detectar mas facil errores en nuestro JavaScript y Prettier un formateador de codigo.
 
+- ### *¿Qué es screaming architecture y qué ventajas tiene?* <a name="p3"></a>
+  Screaming architecture es una arquitectura en la que no se depende tanto de un framework o libreria y asi mantener nuestro sistema de negocio mas libremente. 
 - ### *¿Cómo le indicamos a Vue que usaremos TS en vez de JS?*<a name="p4"></a>
+  Para indicar que usaremos ts en vez de js en la parte de script de cualquier componente vue añadimos la etiqueta `setup lang="ts"`
 
 ## **Reto 2**
 - ### *¿Para qué sirven las [clases](#2.1) que hemos añadido?* <a name="p5"></a>
@@ -57,10 +64,13 @@ ___
   Hay que modificar el archivo `App.vue` e indicar la pantalla que queremos que se vea, en este caso `PokemonGame.vue`
 
 - ### *Utilizando una directiva de VueJS, ¿cómo ocultaríamos [esta](#2.1) sección por completo?* <a name="p7"></a>
+  Las clases que hemos añadido indican que usaremos flex en direccion de columnas, que queremos que dicha seccion ocupe el ancho y largo de la pantalla y queremos que los elementos esten centrados 
 
 - ### *¿Para qué crees que sirven? ¿Te aventuras a intentar averiguar cual será la lógica que implementemos en ellos?* <a name="p8"></a>
+  PokemonPicture.vue será la imagen que nosotros mostremos al usuario del pokemon que debe adivinar y PokemonOptions.vue será la que tenga los botones para intentar adivinar dicho pokemon además de hacer visible si ha ganado o perdido. 
 
 - ### *¿Qué es una propiedad computada?* <a name="p9"></a>
+  Una propiedad computada es una variable asignada a otras variables y por ende se reevalua sola cuando una de sus variables asignadas cambia
 
 ## **Reto 1** <a name="reto1"></a>
   - ### *Paso 1: Crear el proyecto Vue* <a name="1"></a>
