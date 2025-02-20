@@ -222,4 +222,16 @@ ___
     - ¿Qué es lo que estamos haciendo? ¿Para qué sirve la línea de código: const id = urlParts[urlParts.length - 2] ?? 0;?   
 
       Esta linea nos permite tomar la id desde la url del pokemon siendo que separamos el texto entre los `/` de la url y tomamos la posicion en la que esta su id, en caso de que esto falle decimos que tiene la id 0.
+    
+      <img src="./img/reto5-1.png" alt="reto5-1"/>
+
+- ### **Paso 2: Randomizar la lista devuelta** <a name="5.2"></a>
+  - El resultado ahora nos muestra una lista de los 151 pokemons ordenados según su id. Nosotros NO queremos que estén ordenados los pokemons, por tanto, vamos a hacer que nuestra lista nos la devuelva de forma aleatoria, ¿se te ocurre cómo?
+  
+  En vez de devolver la lista hacemos el siguiente return:
+  ```ts
+  return pokemonsArray.sort(() => {return 0.5 - Math.random();});
+  ```
+
+  <img src="./img/reto5-2.png" alt="reto5-2.png"/>
 </div>

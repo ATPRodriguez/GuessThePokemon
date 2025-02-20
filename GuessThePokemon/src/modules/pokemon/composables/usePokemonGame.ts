@@ -18,9 +18,9 @@ export const usePokemonGame = () => {
         }
       })
 
-      return pokemonsArray;
-
-      console.log(response.data.results);
+      console.log(pokemonsArray);
+      
+      return pokemonsArray.sort(() => {return 0.5 - Math.random();});
     }
 
     onMounted(() => {
